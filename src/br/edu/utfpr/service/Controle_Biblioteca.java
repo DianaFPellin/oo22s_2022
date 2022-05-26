@@ -31,10 +31,13 @@ public class Controle_Biblioteca {
             System.out.println("Livro devolvido para a banca com sucesso!");
         }
 
-        if(dataInicialEmprestimo.after(new Date())) {
+        double totalizaMulta;
+        if (dataInicialEmprestimo.getDate() - dataFinalEmprestimo.getDate() > 7) {
             System.out.println("Multa = 50 Cents per day");
+            double diferenca = dataInicialEmprestimo.getDate() - dataFinalEmprestimo.getDate();
+            totalizaMulta = 0.50 * diferenca;
+            System.out.println("Total da multa = " + totalizaMulta);
         }
-
     }
 
     public void reservaLivro(List<Livro> livros, int idLivro, Date dataEmprestimo, List<Pessoa> pessoa, int idPessoa) {

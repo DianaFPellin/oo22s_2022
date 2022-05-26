@@ -62,9 +62,10 @@ public class Main {
                 System.out.println("Digite o ID da pessoa: ");
                 int idPessoa_reserva = scanner.nextInt();
                 System.out.println("Digite a data da reserva: ");
-                Date sim = new Date();
+                String dataReserva = scanner.next();
+//                dataReserva.
 
-                controle_biblioteca_reserva.reservaLivro(bancoDeDados.getListLivros(), idLivro_reserva, sim, bancoDeDados.getListPessoas(), idPessoa_reserva);
+//                controle_biblioteca_reserva.reservaLivro(bancoDeDados.getListLivros(), idLivro_reserva, dataReserva, bancoDeDados.getListPessoas(), idPessoa_reserva);
                 break;
 
         }
