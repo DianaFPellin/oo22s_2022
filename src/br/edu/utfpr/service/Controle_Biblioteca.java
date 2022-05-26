@@ -23,7 +23,7 @@ public class Controle_Biblioteca {
         pessoa.setListaDeLivros(livro);
     }
 
-    public void devolveLivro(List<Livro> livros, int idLivro, Date dataEmprestimo, int idPessoa) {
+    public void devolveLivro(List<Livro> livros, int idLivro, Date dataInicialEmprestimo, Date dataFinalEmprestimo) {
         Livro livro;
         livro = livros.stream().filter(livro1 -> livro1.getIdLivro() == idLivro).findFirst().orElse(null);
         if (livro.isEmprestimo() == true) {
@@ -31,9 +31,10 @@ public class Controle_Biblioteca {
             System.out.println("Livro devolvido para a banca com sucesso!");
         }
 
-        if(dataEmprestimo.after(new Date())) {
-            System.out.println("Multa Total = 50 Cents per day");
+        if(dataInicialEmprestimo.after(new Date())) {
+            System.out.println("Multa = 50 Cents per day");
         }
+
     }
 
     public void reservaLivro(List<Livro> livros, int idLivro, Date dataEmprestimo, List<Pessoa> pessoa, int idPessoa) {
@@ -42,7 +43,7 @@ public class Controle_Biblioteca {
         livro = livros.stream().filter(livro1 -> livro1.getIdLivro() == idLivro).findFirst().orElse(null);
         if (livro.isEmprestimo() == true){
             livro.setDataReserva(dataEmprestimo);
-            System.out.println("Livro reservado com sucesso!");
+            System.out.println("Livro reservado!");
         }
 
         pessoa_reserva = pessoa.stream().filter(pessoa1 -> pessoa1.getIdPessoa() == idPessoa).findFirst().orElse(null);

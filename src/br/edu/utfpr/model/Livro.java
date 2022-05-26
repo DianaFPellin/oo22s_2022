@@ -9,7 +9,8 @@ public class Livro {
     private float anoLancamento;
     private String edicao;
     private boolean emprestimo;
-    private Date diaEmprestimo;
+    private Date diaInicialEmprestimo;
+    private Date diaFinalEmprestimo;
     private Date dataReserva;
 
 
@@ -38,8 +39,12 @@ public class Livro {
         return idLivro;
     }
 
-    public void setDataEmprestimo(Date dataEmprestimo) {
-        this.diaEmprestimo = dataEmprestimo;
+    public void setDataInicialEmprestimo(Date dataEmprestimo) {
+        this.diaInicialEmprestimo = dataEmprestimo;
+    }
+
+    public void setDataFinalEmprestimo(Date dataEmprestimo) {
+        this.diaFinalEmprestimo = dataEmprestimo;
     }
 
     public void setDataReserva(Date dataReserva) {

@@ -43,7 +43,8 @@ public class Main {
                 controle_biblioteca.emprestaLivro(bancoDeDados.getListLivros(), idLivro, bancoDeDados.getListPessoas(), idPessoa);
                 Livro livroEmprestimo = new Livro();
 
-                livroEmprestimo.setDataEmprestimo(new Date());
+                livroEmprestimo.setDataInicialEmprestimo(new Date());
+                livroEmprestimo.setDataFinalEmprestimo(new Date());
                 break;
             case 2:
                 Controle_Biblioteca controle_biblioteca_devolucao = new Controle_Biblioteca();
@@ -51,7 +52,7 @@ public class Main {
                 int idLivro_devolucao = scanner.nextInt();
                 System.out.println("Digite o ID da pessoa: ");
                 int idPessoa_Devolucao = scanner.nextInt();
-//                controle_biblioteca_devolucao.devolveLivro(bancoDeDados.getListLivros(), idLivro_devolucao, new Date(), bancoDeDados.getListPessoas(),  idPessoa_Devolucao);
+                controle_biblioteca_devolucao.devolveLivro(bancoDeDados.getListLivros(), idLivro_devolucao, new Date(), new Date());
 
                 break;
             case 3:
@@ -63,7 +64,7 @@ public class Main {
                 System.out.println("Digite a data da reserva: ");
                 Date sim = new Date();
 
-                controle_biblioteca_reserva.reservaLivro(bancoDeDados.getListLivros(),idLivro_reserva, sim, bancoDeDados.getListPessoas(), idPessoa_reserva);
+                controle_biblioteca_reserva.reservaLivro(bancoDeDados.getListLivros(), idLivro_reserva, sim, bancoDeDados.getListPessoas(), idPessoa_reserva);
                 break;
 
         }
