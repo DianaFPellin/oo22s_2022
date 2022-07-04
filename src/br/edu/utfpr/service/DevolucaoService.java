@@ -20,8 +20,9 @@ public class DevolucaoService extends Rotinas {
         );
 
         BancoDeDados.livros.stream().filter(livro -> livro.getId() == livrosId).findFirst().orElse(null).setDisponivel(true);
-
-        validaDataEntregaECalculaMulta(livrosId);
+        if  (BancoDeDados.locacoes.stream().filter(locacao -> locacao.getLivro().getId() == livrosId).findFirst().orElse(null) != null) {
+            validaDataEntregaECalculaMulta(livrosId);
+        }
     }
 
     private void validaDataEntregaECalculaMulta(int livrosId) {
