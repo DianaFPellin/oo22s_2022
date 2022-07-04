@@ -16,7 +16,6 @@ import java.util.Scanner;
 public class ReservaService extends Rotinas {
 
     public void efetuarReserva(Pessoa pessoa, int livrosId) {
-        Locacao locacao_livro = new Locacao();
         LocalDate localDate;
         Scanner scanner = new Scanner(System.in);
         if (validaSeEstaDisponivel(livrosId)) {

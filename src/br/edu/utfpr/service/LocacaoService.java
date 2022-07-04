@@ -6,6 +6,7 @@ import br.edu.utfpr.model.Locacao;
 import br.edu.utfpr.model.Pessoa;
 import br.edu.utfpr.rotinas.Rotinas;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.temporal.ChronoUnit;
 import java.util.List;
@@ -19,8 +20,8 @@ public class LocacaoService extends Rotinas {
             BancoDeDados.locacoes.add(
                     new Locacao(pessoa,
                             getLivrosById(livrosId),
-                            LocalDateTime.now(),
-                            ChronoUnit.DAYS.addTo(LocalDateTime.now(), 30))
+                            LocalDate.now(),
+                            ChronoUnit.DAYS.addTo(LocalDate.now(), 30))
             );
 
             BancoDeDados.livros.stream()

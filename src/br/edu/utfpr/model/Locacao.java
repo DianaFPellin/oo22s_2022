@@ -1,30 +1,30 @@
 package br.edu.utfpr.model;
 
-import java.time.LocalDateTime;
-import java.util.List;
+import java.time.LocalDate;
 
 public class Locacao {
 
     private Pessoa pessoa;
     private Livro livro;
-    private LocalDateTime dataInicial;
-    private LocalDateTime dataFinal;
+    private LocalDate dataInicial;
+    private LocalDate dataFinal;
 
-    public Locacao() {
-    }
-
-    public Locacao(Pessoa pessoa, Livro livro, LocalDateTime dataInicial, LocalDateTime dataFinal) {
+    public Locacao(Pessoa pessoa, Livro livro, LocalDate dataInicial, LocalDate dataFinal) {
         this.pessoa = pessoa;
         this.livro = livro;
         this.dataInicial = dataInicial;
         this.dataFinal = dataFinal;
     }
 
-    public LocalDateTime getDataInicial() {
+    public LocalDate getDataInicial() {
         return dataInicial;
     }
 
-    public LocalDateTime getDataFinal() {
+    public LocalDate getDataFinal() {
         return dataFinal;
+    }
+
+    public Livro getLivro() {
+        return livro;
     }
 }

@@ -6,6 +6,7 @@ import br.edu.utfpr.model.Locacao;
 import br.edu.utfpr.model.Pessoa;
 import br.edu.utfpr.rotinas.Rotinas;
 
+import java.time.Duration;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.temporal.ChronoUnit;
@@ -20,27 +21,30 @@ public class DevolucaoService extends Rotinas {
 
         BancoDeDados.livros.stream().filter(livro -> livro.getId() == livrosId).findFirst().orElse(null).setDisponivel(true);
 
-//        validaDataEntregaECalculaMulta();
+        validaDataEntregaECalculaMulta(livrosId);
     }
 
-    private void validaDataEntregaECalculaMulta() {
-        LocalDate localDateTime = LocalDate.now();
-        long dataEntre;
-        Locacao locacao = new Locacao();
+    private void validaDataEntregaECalculaMulta(int livrosId) {
+        LocalDate localDate = LocalDate.now();
+        LocalDate data_locacao;
         double calculaMulta = 0;
 
-        dataEntre = ChronoUnit.DAYS.between(locacao.getDataInicial(), localDateTime);
+        data_locacao = BancoDeDados.locacoes.stream().filter(locacao -> locacao.getLivro().getId() == livrosId).findFirst().orElse(null).getDataInicial();
 
-        if (dataEntre <= 30) {
+        Duration dataEntre = Duration.between(data_locacao.atStartOfDay(), localDate.atStartOfDay());
+
+        if (dataEntre.toDays() <= 30) {
             System.out.println("Livro devolvido com sucesso!");
         } else {
-           for (int i = 0; i <= dataEntre; i++) {
+           calculaMulta = 0;
+           for (int i = 0; i < dataEntre.toDays() - 30; i++) {
                calculaMulta = calculaMulta + 0.50;
 
                if (calculaMulta >= 20) {
                    calculaMulta = calculaMulta + 1;
                }
            }
+            System.out.println("Multa devido ao atraso de "+ calculaMulta +" reais!");
         }
     }
 

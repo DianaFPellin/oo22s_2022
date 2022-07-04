@@ -1,6 +1,5 @@
 package br.edu.utfpr;
 
-import br.edu.utfpr.model.Livro;
 import br.edu.utfpr.model.Pessoa;
 import br.edu.utfpr.service.DevolucaoService;
 import br.edu.utfpr.service.LocacaoService;
@@ -13,7 +12,7 @@ Criar programa orientado à objetos para solucionar os seguintes casos de uso:
 - Será o controle de uma biblioteca V
 - Desenvolver método para a locação de livro V
 - deverá validar se livro está disponível V
-- Método para reserva de livro V
+- Método para reserva de livro V1
 - Valida se há alguma reserva para data e se estará disponível V
 - Método para devolução do livro V
 - Válida se a data da entrega é anterior a data máxima V
